@@ -1,5 +1,4 @@
 # Import the create_cd_account and create_savings_account functions
-# ADD YOUR CODE HERE
 import cd_account as cd_account
 import savings_account as sav_account
 
@@ -13,23 +12,29 @@ def main():
     while True:
         try:
             savings_balance = float(input("Enter the balance to set up the savings account  "))
+            if savings_balance <= 0:
+                raise ValueError("Must be > zero")
             break
         except ValueError:
-            print("Try again! Enter the savings account balance as a (floating point) number.  Try again...")
+            print("Try again! Enter the savings account balance as a (floating point) number greater than zero.  Try again...")
     
     while True:
         try:
             savings_interest = float(input("Enter the annual interest rate as a (floating point) number to set up the savings account  "))
+            if savings_interest <= 0:
+                raise ValueError("Must be > zero")
             break
         except ValueError:
-            print("Try again! Enter the annual interest rate as a floating point number.  Try again...")
+            print("Try again! Enter the annual interest rate as a floating point number greater than zero.  Try again...")
 
     while True:
         try:
             savings_maturity = int(input("Enter the number of months as a whole number to set up the savings account  "))
+            if savings_maturity <= 0:
+                raise ValueError("Must be > zero")
             break
         except ValueError:
-            print("Try again! Enter the number of months as a whole number.  Try again...")
+            print("Try again! Enter the number of months as a whole number greater than zero.  Try again...")
 
     # Call the create_savings_account function and pass the variables from the user.
     updated_savings_balance, savings_interest_earned = sav_account.create_savings_account(savings_balance, savings_interest, savings_maturity)
@@ -44,20 +49,26 @@ def main():
     while True:
         try:
             cd_balance = float(input("Enter the balance to set up the CD account  "))
+            if cd_balance <= 0:
+                raise ValueError("Must be > zero")
             break
         except ValueError:
-            print("Try again! Enter the CD account balance as a (floating point) number.  Try again...")
+            print("Try again! Enter the CD account balance as a (floating point) number greater than zero .  Try again...")
 
     while True:
         try:
             cd_interest = float(input("Enter the annual CD interest rate as a (floating point) number to set up the CD account  "))
+            if cd_interest <= 0:
+                raise ValueError("Must be > zero")
             break
         except ValueError:
-            print("Try again! Enter the annual CD interest rate as a floating point number.  Try again...")
+            print("Try again! Enter the annual CD interest rate as a floating point number greater than zero.  Try again...")
 
     while True:
         try:
             cd_maturity = int(input("Enter the number of months as a whole number to set up the CD account  "))
+            if cd_maturity <= 0:
+                raise ValueError("Must be > zero")
             break
         except ValueError:
             print("Try again! Enter the number of months as a whole number for your CD account.  Try again...")
